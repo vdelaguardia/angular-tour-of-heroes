@@ -13,4 +13,10 @@ describe('HeroService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should get heroes', () => {
+    let heroes;
+    const result = service.getHeroes().subscribe(x => heroes = x);
+    expect(heroes).toBeTruthy();
+  });
 });
