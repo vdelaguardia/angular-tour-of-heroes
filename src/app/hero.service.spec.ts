@@ -19,4 +19,8 @@ describe('HeroService', () => {
     const result = service.getHeroes().subscribe(x => heroes = x);
     expect(heroes).toBeTruthy();
   });
+
+  // it('should add hero', () => {
+  //   const logger
+  // })
 });

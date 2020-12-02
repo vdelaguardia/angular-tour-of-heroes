@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
@@ -12,6 +13,9 @@ describe('HeroesComponent', () => {
       declarations: [
         HeroesComponent,
         HeroDetailComponent
+      ],
+      providers: [
+        HttpClient
       ]
     })
     .compileComponents();
