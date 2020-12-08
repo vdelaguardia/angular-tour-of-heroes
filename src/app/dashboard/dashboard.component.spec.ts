@@ -25,4 +25,8 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should get heroes', () => {
+  //   expect()
+  // });
 });
