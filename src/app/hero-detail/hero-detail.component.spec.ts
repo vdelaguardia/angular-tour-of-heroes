@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../services/hero.service';
 import { HeroDetailComponent } from './hero-detail.component';
 import { SpyLocation } from '@angular/common/testing';
 

@@ -2,14 +2,18 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { Hero } from '../hero';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-import { HeroService } from '../services/hero.service';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { HeroesContainerComponent } from './heroes-container.component';
 import { HeroesComponent } from './heroes.component';
 
 describe('HeroesComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
-  let getHeroesSpy: jasmine.Spy;
+  let component: HeroesContainerComponent;
+  let fixture: ComponentFixture<HeroesContainerComponent>;
   let heroes: Array<Hero>;
+
+  let store: MockStore;
+  const initialState = new Array<Hero>();
+
 
   beforeEach(() => {
     heroes = [
@@ -17,20 +21,17 @@ describe('HeroesComponent', () => {
       { id: 12, name: 'Narco' }
     ];
 
-    const heroService = jasmine.createSpyObj('HeroService', ['getHeroes']);
-    getHeroesSpy = heroService.getHeroes.and.returnValue(of(heroes));
-
     TestBed.configureTestingModule({
       declarations: [
         HeroesComponent,
-        HeroDetailComponent
+        HeroesContainerComponent
       ],
       providers: [
-        HeroesComponent,
-        { provide: HeroService, useValue: heroService } ]
+        provideMockStore({ initialState }) ]
     });
 
-    fixture = TestBed.createComponent(HeroesComponent);
+    store = TestBed.inject(MockStore);
+    fixture = TestBed.createComponent(HeroesContainerComponent);
     component = fixture.componentInstance;
   });
 
